@@ -1,3 +1,35 @@
+# suivr
+
+**A friendly fork of [polr](https://github.com/cydrobolt/polr) that adds the link-management API polr never shipped.**
+
+_suivr_ (from the French **suivre**, "to follow", in polr's own dropped-vowel style) walks
+in polr's footsteps and carries the trail a little further. Stock polr's v2 API can only
+shorten, look up, and report analytics; managing existing links is admin-UI-only. suivr adds
+five api-key-protected endpoints so links can be managed programmatically:
+
+| Method | Endpoint | Does |
+|--------|----------|------|
+| `GET`  | `/api/v2/action/list`   | list your links (admins: all), optional substring filter |
+| `POST` | `/api/v2/action/rename` | rename a link ending in place |
+| `POST` | `/api/v2/action/update` | change a link's destination URL |
+| `POST` | `/api/v2/action/toggle` | enable/disable a link without deleting it |
+| `POST` | `/api/v2/action/delete` | delete a link |
+
+All five enforce ownership (you manage your own links; admins manage any; anonymous API
+users are refused) and reuse polr's existing `api` middleware, so authentication and quotas
+are unchanged. See **[docs/developer-guide/api.md](docs/developer-guide/api.md)** for full
+request/response details, and `tests/ApiLinkManagementTest.php` for the test suite.
+
+Credit to [**@technowhizz**](https://github.com/cydrobolt/polr/pull/632) (polr PR #632), whose
+delete endpoint this builds on, hardened with ownership checks and extended to the full set.
+Addresses long-standing requests [#221](https://github.com/cydrobolt/polr/issues/221),
+[#442](https://github.com/cydrobolt/polr/issues/442), and [#538](https://github.com/cydrobolt/polr/issues/538).
+
+Everything below is polr's original README, unchanged. suivr stays a respectful fork: same
+license (GPL-2.0+), same architecture, no rename of the upstream project's internals.
+
+---
+
 <img src="https://i.imgur.com/ckI6GTu.png" width="350px" alt="Polr Logo" />
 
 
