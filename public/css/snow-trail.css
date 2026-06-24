@@ -1,6 +1,6 @@
-/* suivr — snow-trail identity (override layer over default-bootstrap).
+/* suivr: snow-trail identity (override layer over default-bootstrap).
  *
- * A trail in the snow: suivr ("suivre" — to follow, to track) themes Polr's
+ * A trail in the snow: suivr ("suivre", to follow, to track) themes Polr's
  * Bootstrap 3 base into light glacier chrome. Loaded AFTER base.css, so it wins.
  *
  * Colours are the snow-trail palette (authored in OKLCH, rasterised to hex here so
