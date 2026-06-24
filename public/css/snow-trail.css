@@ -107,4 +107,4 @@ a:hover, a:focus { color: #114e7d; }
 .suivr-hero .name .dot { color: #166daf; }
 .suivr-hero .kicker { color: #5b656e; margin: 0 0 6px; }
 .lineage { max-width: 60ch; margin: 8px auto 0; text-align: left; }
-.lineage h3 { font-weight: 700; letter-spacing: -0.01em; }
+.lineage h3 { font-weight: 700; letter-spacing: -0.01em; color: #1f2731; }
