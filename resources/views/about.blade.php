@@ -2,29 +2,40 @@
 
 @section('css')
 <link rel='stylesheet' href='/css/about.css' />
-<link rel='stylesheet' href='/css/effects.css' />
 @endsection
 
 @section('content')
-<div class='well logo-well'>
-    <img class='logo-img' src='/img/logo.png' />
+<div class="suivr-hero">
+    <span class="suivr-trail" aria-hidden="true">
+        <svg viewBox="0 0 120 104"><g fill="currentColor">
+            <g transform="translate(20 86) rotate(-26)" opacity="0.22"><ellipse cx="0" cy="0" rx="6" ry="9.5"/><ellipse cx="0.4" cy="13.5" rx="4.3" ry="5.2"/></g>
+            <g transform="translate(43 66) rotate(-26)" opacity="0.42"><ellipse cx="-5" cy="0" rx="6" ry="9.5"/><ellipse cx="-4.6" cy="13.5" rx="4.3" ry="5.2"/></g>
+            <g transform="translate(68 45) rotate(-26)" opacity="0.68"><ellipse cx="0" cy="0" rx="6" ry="9.5"/><ellipse cx="0.4" cy="13.5" rx="4.3" ry="5.2"/></g>
+            <g transform="translate(94 23) rotate(-26)" opacity="1"><ellipse cx="-5" cy="0" rx="6" ry="9.5"/><ellipse cx="-4.6" cy="13.5" rx="4.3" ry="5.2"/></g>
+        </g></svg>
+    </span>
+    <div class="name">{{env('APP_NAME')}}<span class="dot">.</span></div>
+    <p class="kicker">Follow the link. Track the trail.</p>
 </div>
 
-<div class='about-contents'>
+<div class="lineage">
     @if ($role == "admin")
     <dl>
-        <p>Build Information</p>
+        <p>Build information</p>
         <dt>Version: {{env('POLR_VERSION')}}</dt>
         <dt>Release date: {{env('POLR_RELDATE')}}</dt>
-        <dt>App Install: {{env('APP_NAME')}} on {{env('APP_ADDRESS')}} on {{env('POLR_GENERATED_AT')}}<dt>
+        <dt>App install: {{env('APP_NAME')}} on {{env('APP_ADDRESS')}} on {{env('POLR_GENERATED_AT')}}</dt>
     </dl>
-    <p>You are seeing the information above because you are logged in as an administrator. You can edit the contents of this page by editing <code>resources/views/about.blade.php</code></p>
+    <p>You see the build information above because you are signed in as an administrator. Edit this page at <code>resources/views/about.blade.php</code>.</p>
     @endif
 
-    <p>{{env('APP_NAME')}} is powered by Polr 2, an open source, minimalist link shortening platform. The Polr Project is in no way associated with this site.
-        Learn more at <a href='https://github.com/Cydrobolt/polr'>its Github page</a> or its <a href="//project.polr.me">project site</a>.
-        <br />Polr is licensed under the GNU GPL License.
-    </p>
+    <h3>Lineage</h3>
+    <p>{{env('APP_NAME')}} runs on <strong>suivr</strong>, a friendly fork of
+        <a href="https://github.com/cydrobolt/polr">Polr</a>, the open-source link shortener by Chaoyi Zha.
+        suivr keeps Polr's core intact and adds the link-management API the original lacks: list, rename,
+        update, toggle, and delete, each with ownership checks.
+        Learn more at <a href="https://github.com/PLNech/suivr">github.com/PLNech/suivr</a>.</p>
+    <p>The name is French for <em>to follow</em>, the same root as the footprints above.
+        Both Polr and suivr are licensed under the GNU GPL.</p>
 </div>
-
 @endsection

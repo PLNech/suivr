@@ -1,0 +1,110 @@
+/* suivr — snow-trail identity (override layer over default-bootstrap).
+ *
+ * A trail in the snow: suivr ("suivre" — to follow, to track) themes Polr's
+ * Bootstrap 3 base into light glacier chrome. Loaded AFTER base.css, so it wins.
+ *
+ * Colours are the snow-trail palette (authored in OKLCH, rasterised to hex here so
+ * the public fork themes correctly on any browser, old ones included):
+ *   glacier #6cb2ec · glacier-deep #166daf · amber #e8a86f · pine-deep #187c49
+ *   snow #f8fafd · surface #f0f4f7 · ink #1f2731 · muted #5b656e · line #d9dfe3
+ * Every fill/text pair below is contrast-verified (glacier-deep+white 5.5:1,
+ * amber+ink 7.4:1, pine-deep+white 5.2:1, ink-on-snow 14:1).
+ */
+
+body {
+  background-color: #f8fafd;
+  color: #1f2731;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: #166daf; }
+a:hover, a:focus { color: #114e7d; }
+
+::selection { background: rgba(109, 178, 236, 0.30); }
+
+/* ---- navbar: snow surface, glacier-deep brand with a footprint mark -------- */
+.navbar-default {
+  background-color: #ffffff;
+  border: 0;
+  border-bottom: 1px solid #d9dfe3;
+  box-shadow: 0 1px 2px rgba(15, 23, 32, 0.05);
+}
+.navbar-default .navbar-brand {
+  color: #166daf;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus { color: #114e7d; }
+/* the one footprint mark: a short trail before the wordmark (glacier-deep) */
+.navbar-default .navbar-brand::before {
+  content: "";
+  width: 30px; height: 24px; flex: none;
+  background: no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 104'%3E%3Cg fill='%23166daf'%3E%3Cg transform='translate(20 86) rotate(-26)' opacity='0.30'%3E%3Cellipse cx='0' cy='0' rx='6' ry='9.5'/%3E%3Cellipse cx='0.4' cy='13.5' rx='4.3' ry='5.2'/%3E%3C/g%3E%3Cg transform='translate(43 66) rotate(-26)' opacity='0.55'%3E%3Cellipse cx='-5' cy='0' rx='6' ry='9.5'/%3E%3Cellipse cx='-4.6' cy='13.5' rx='4.3' ry='5.2'/%3E%3C/g%3E%3Cg transform='translate(68 45) rotate(-26)' opacity='0.78'%3E%3Cellipse cx='0' cy='0' rx='6' ry='9.5'/%3E%3Cellipse cx='0.4' cy='13.5' rx='4.3' ry='5.2'/%3E%3C/g%3E%3Cg transform='translate(94 23) rotate(-26)' opacity='1'%3E%3Cellipse cx='-5' cy='0' rx='6' ry='9.5'/%3E%3Cellipse cx='-4.6' cy='13.5' rx='4.3' ry='5.2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.navbar-default .navbar-nav > li > a { color: #5b656e; font-weight: 500; }
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus { color: #166daf; background: transparent; }
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus { color: #166daf; background-color: #f0f4f7; }
+.navbar-default .navbar-toggle { border-color: #d9dfe3; }
+.navbar-default .navbar-toggle .icon-bar { background-color: #5b656e; }
+
+/* ---- buttons -------------------------------------------------------------- */
+.btn { border-radius: 8px; font-weight: 600; border: 1px solid transparent; transition: filter .14s ease, background-color .14s ease, border-color .14s ease; }
+.btn-primary, .btn-info {
+  background-color: #166daf; color: #ffffff; border-color: transparent;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-info:hover, .btn-info:focus {
+  background-color: #135f98; color: #ffffff;
+}
+.btn-success { background-color: #187c49; color: #ffffff; border-color: transparent; }
+.btn-success:hover, .btn-success:focus { background-color: #156b3f; color: #ffffff; }
+.btn-warning { background-color: #e8a86f; color: #1f2731; border-color: transparent; }  /* dark ink 7.4:1 */
+.btn-warning:hover, .btn-warning:focus { background-color: #e09a58; color: #1f2731; }
+.btn-default {
+  background-color: #ffffff; color: #1f2731; border-color: #d9dfe3;
+}
+.btn-default:hover, .btn-default:focus { border-color: #6cb2ec; color: #166daf; background-color: #ffffff; }
+
+/* ---- forms --------------------------------------------------------------- */
+.form-control {
+  border: 1px solid #d9dfe3; border-radius: 8px; color: #1f2731;
+  box-shadow: none; background-color: #ffffff;
+}
+.form-control:focus {
+  border-color: #6cb2ec; box-shadow: 0 0 0 3px rgba(109, 178, 236, 0.25);
+}
+
+/* ---- surfaces: wells, jumbotron, dropdowns ------------------------------- */
+.well, .jumbotron, .large-content-div {
+  background-color: #f0f4f7; border: 1px solid #d9dfe3; border-radius: 14px;
+  box-shadow: none;
+}
+.dropdown-menu {
+  border: 1px solid #d9dfe3; border-radius: 12px;
+  box-shadow: 0 8px 28px rgba(15, 23, 32, 0.12);
+}
+.dropdown-menu > li > a { color: #1f2731; }
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus { background-color: #f0f4f7; color: #166daf; }
+
+/* ---- index page ---------------------------------------------------------- */
+.title { font-weight: 800; letter-spacing: -0.03em; color: #1f2731; }
+.site-url-field { color: #187c49 !important; }   /* was a flat CSS green */
+#tips, .text-muted { color: #5b656e !important; }
+
+/* ---- about page: footprint hero + lineage -------------------------------- */
+.suivr-hero { text-align: center; padding: 14px 0 8px; }
+/* .suivr-trail, NOT .mark: Bootstrap's .mark is a yellow text-highlight (#fcf8e3). */
+.suivr-hero .suivr-trail { display: inline-flex; color: #166daf; }
+.suivr-hero .suivr-trail svg { width: 120px; height: 104px; }
+.suivr-hero .name { font-size: 2.6rem; font-weight: 800; letter-spacing: -0.04em; color: #1f2731; margin: 6px 0 2px; }
+.suivr-hero .name .dot { color: #166daf; }
+.suivr-hero .kicker { color: #5b656e; margin: 0 0 6px; }
+.lineage { max-width: 60ch; margin: 8px auto 0; text-align: left; }
+.lineage h3 { font-weight: 700; letter-spacing: -0.01em; }
